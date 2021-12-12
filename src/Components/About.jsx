@@ -1,6 +1,10 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 
 const About = () => {
+    useEffect(() => {
+        alert('This Page of the website is under construction. Please Wait till it the development of this page completes')
+    }, [])
+
     return (
         <>
             <div className="w-full">

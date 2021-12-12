@@ -2,12 +2,22 @@ import React, { useState } from 'react';
 import { Link, useHistory } from 'react-router-dom';
 
 const Signup = () => {
-    const [credentials, setCredentials] = useState({ name: "", email: "", password: "" });
+    const [credentials, setCredentials] = useState({ name: "", email: "", password: "", c_p: '' });
     let history = useHistory();
     const { name, email, password } = credentials;
 
     const handleSubmit = async (e) => {
         e.preventDefault();
+
+        // Checks
+        if (credentials.c_p !== credentials.password)
+        {
+            return alert('Passwords did not match');
+        } else if (credentials.name === '')
+        {
+            return alert('Please fill in the fields correctly');
+        }
+
         const response = await fetch("http://localhost:5000/api/auth/createuser", {
             method: 'POST',
             headers: {
@@ -16,13 +26,12 @@ const Signup = () => {
             body: JSON.stringify({ name, email, password })
         });
         const json = await response.json();
-        
+
         if (json)
         {
             console.log(json);
             history.push('/login');
         }
-        // alert('User Created Successfully!')
     };
 
     const onChange = (e) => {
@@ -52,6 +61,7 @@ const Signup = () => {
                                             name='name'
                                             value={ credentials.name }
                                             onChange={ onChange }
+                                            required
                                         />
                                     </div>
                                     <div>
@@ -69,6 +79,7 @@ const Signup = () => {
                                             name='email'
                                             value={ credentials.email }
                                             onChange={ onChange }
+                                            required
                                         />
                                     </div>
                                     <div>
@@ -85,7 +96,25 @@ const Signup = () => {
                                             type="password"
                                             name='password'
                                             value={ credentials.password }
-                                            onChange={ onChange } />
+                                            onChange={ onChange }
+                                            required />
+                                    </div>
+                                    <div>
+                                        <label className="text-gray-700">Confirm Password</label>
+                                        <svg xmlns="http://www.w3.org/2000/svg"
+                                            className="font-medium text-2xl text-gray-600 absolute p-2.5 px-3 w-11" fill="none"
+                                            viewBox="0 0 24 24" stroke="currentColor">
+                                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2"
+                                                d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
+                                        </svg>
+                                        <input
+                                            className="py-2 pl-10 border border-gray-200 w-full"
+                                            placeholder="Confirm Password"
+                                            type="password"
+                                            name='c_p'
+                                            value={ credentials.c_p }
+                                            onChange={ onChange }
+                                            required />
                                     </div>
                                     <div className="w-full flex flex-row gap-2">
                                         <button className="border border-blue-500 hover:bg-blue-500 hover:text-white duration-100 ease-in-out w-6/12 text-blue-500 p-0 flex flex-row justify-center items-center gap-1"

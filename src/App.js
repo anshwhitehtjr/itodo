@@ -16,7 +16,7 @@ import './Styles/custom.css';
 function App () {
   return (
     <AppState>
-      <Router>
+      <Router basename='/itodo'>
         <Navbar />
         <hr />
         <Switch>

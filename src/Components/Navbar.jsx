@@ -13,8 +13,9 @@ const Navbar = () => {
     return (
         <header className="lg:px-16 px-6 flex flex-wrap items-center lg:py-0 py-2">
             <div className="flex-1 flex justify-between items-center">
-                <Link to="/">
-                    <img id='navimg' src="./favicon.ico" alt="" />
+                <Link to="/" id='brand'>
+                    <img id='navimg' src="/favicon.ico" alt="" />
+                    <p className="text-3xl font-bold leading-7">iTodo</p>
                 </Link>
             </div>
             <label htmlFor="menu-toggle" className="pointer-cursor lg:hidden block"><svg className="fill-current text-gray-900" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20"><title>menu</title><path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z"></path></svg></label>
