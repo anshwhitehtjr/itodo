@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#000000" />
+    <meta name="description" content="This is website allows you to create todos on the cloud" />
+    <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
+    <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
+    <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+    <link href="https://kit-pro.fontawesome.com/releases/v5.15.4/css/pro.min.css" rel="stylesheet">
+    <style>
+      #menu-toggle:checked+#menu {
+        display: block;
+      }
+
+      .modal-body {
+        max-height: 500px;
+      }
+
+      .bg-gray-800-opacity {
+        background-color: #2D374850;
+      }
+
+      @media screen and (max-width: 768px) {
+        .modal-body {
+          max-height: 400px;
+        }
+      }
+
+      /* animation for vue transition tag */
+
+      .fade-up-down-enter-active {
+        transition: all 0.3s ease;
+      }
+
+      .fade-up-down-leave-active {
+        transition: all 0.3s ease;
+      }
+
+      .fade-up-down-enter {
+        transform: translateY(10%);
+        opacity: 0;
+      }
+
+      .fade-up-down-leave-to {
+        transform: translateY(10%);
+        opacity: 0;
+      }
+
+      .fade-enter-active {
+        -webkit-transition: opacity 2s;
+        transition: opacity .3s;
+
+      }
+
+      .fade-leave-active {
+        transition: opacity .3s;
+      }
+
+      .fade-enter,
+      .fade-leave-to {
+        opacity: 0;
+      }
+
+    </style>
+    <title>iTodo</title>
+  </head>
+
+  <body>
+    <div id="root"></div>
+
+    <script src="https://unpkg.com/@themesberg/flowbite@1.1.0/dist/flowbite.bundle.js"></script>
+  </body>
+
+</html>
