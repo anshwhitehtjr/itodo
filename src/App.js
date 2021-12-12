@@ -11,7 +11,6 @@ import Home from "./Components/Home";
 import Login from "./Components/Login";
 import Navbar from "./Components/Navbar";
 import Signup from "./Components/Signup";
-import './Styles/custom.css';
 
 function App () {
   return (
